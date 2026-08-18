@@ -1,0 +1,48 @@
+name: manager_bot
+description: >-
+  Native Android/iOS staff console for the Telegram-bot casino cashier backend.
+  Admins review deposits, watch reconciliation breaks and agent float, and
+  manage payment destinations.
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+# ---------------------------------------------------------------------------
+# HOUSE RULE: this dependency set is FIXED.
+# No freezed / json_serializable / build_runner / retrofit / any codegen.
+# The Flutter SDK is not installed on the build machine, so nothing that
+# requires `dart run build_runner` may ever enter this file.
+# Every model is hand-written fromJson/toJson.
+# ---------------------------------------------------------------------------
+dependencies:
+  flutter:
+    sdk: flutter
+  # SDK package, NOT codegen: it ships Flutter's own Material/Cupertino/Widgets
+  # translations and the RTL Directionality for Arabic. Nothing here runs
+  # build_runner and there is still no .arb file in this repo - app strings are
+  # hand-written in lib/core/i18n/app_strings.dart.
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^2.6.1
+  dio: ^5.7.0
+  flutter_secure_storage: ^9.2.2
+  go_router: ^14.6.2
+  # NOTE: not a new dependency and not a discretionary bump. The SDK's
+  # flutter_localizations pins `intl ^0.20.3`, so the existing `^0.19.0`
+  # constraint made the lockfile unsolvable. Nothing else changed. The APIs this
+  # app uses - NumberFormat.decimalPattern in core/money/money.dart and
+  # DateFormat in core/i18n/app_localizations_x.dart - are unchanged in 0.20.
+  intl: ^0.20.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  # No asset bundles yet. If a feature adds one, declare it here, e.g.:
+  # assets:
+  #   - assets/icons/

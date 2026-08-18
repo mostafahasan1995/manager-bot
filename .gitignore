@@ -1,0 +1,103 @@
+# ---------------------------------------------------------------------------
+# Secrets — NEVER commit. Bot codes, API hosts and signing material live here.
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.env
+secrets.json
+dart_defines*.json
+!dart_defines.example.json
+*.jks
+*.keystore
+key.properties
+*.p12
+*.pem
+*.mobileprovision
+ios/Runner/GoogleService-Info.plist
+android/app/google-services.json
+android/key.properties
+
+# ---------------------------------------------------------------------------
+# Dart / Flutter
+# ---------------------------------------------------------------------------
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+# pubspec.lock is deliberately NOT ignored. Ignoring it is correct for a
+# reusable package; this is an application, and committing the lock file is
+# what makes two machines resolve the same dependency versions.
+doc/api/
+*.dart.js
+*.info.json
+*.js_
+*.js.deps
+*.js.map
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-versions
+.metadata.bak
+
+# Code generation must not exist in this project; ignored so a stray run
+# can never be committed.
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+
+# ---------------------------------------------------------------------------
+# IDE / tooling
+# ---------------------------------------------------------------------------
+.idea/
+.vscode/
+!.vscode/launch.json.example
+*.iml
+*.ipr
+*.iws
+.atom/
+.history/
+.svn/
+migrate_working_dir/
+
+# ---------------------------------------------------------------------------
+# Android
+# ---------------------------------------------------------------------------
+android/.gradle/
+android/captures/
+android/.cxx/
+android/local.properties
+android/**/GeneratedPluginRegistrant.java
+android/app/debug/
+android/app/profile/
+android/app/release/
+*.apk
+*.aab
+
+# ---------------------------------------------------------------------------
+# iOS / macOS
+# ---------------------------------------------------------------------------
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+ios/Flutter/flutter_export_environment.sh
+ios/Runner/GeneratedPluginRegistrant.*
+ios/ServiceDefinitions.json
+**/DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# ---------------------------------------------------------------------------
+# OS noise
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~

@@ -1,0 +1,106 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  language:
+    # A money-review console must never silently coerce a wire value.
+    strict-casts: true
+    strict-raw-types: true
+  errors:
+    # Reviewer-grade rules promoted to hard errors.
+    unawaited_futures: error
+    avoid_dynamic_calls: error
+    cancel_subscriptions: error
+    close_sinks: error
+    collection_methods_unrelated_type: error
+    invalid_case_patterns: error
+    literal_only_boolean_expressions: error
+    no_adjacent_strings_in_list: error
+    unrelated_type_equality_checks: error
+    body_might_complete_normally_catch_error: error
+    # Dart 3 exhaustiveness on our sealed hierarchies (ApiError, AuthState).
+    non_exhaustive_switch_expression: error
+    non_exhaustive_switch_statement: error
+    # Missing/incorrect awaits are correctness bugs here, not style.
+    discarded_futures: warning
+    unnecessary_cast: warning
+    todo: ignore
+  exclude:
+    - "**/*.g.dart" # must never exist; excluded so a stray file cannot poison analysis
+    - "build/**"
+    - android/**
+    - ios/**
+    - web/**
+    - windows/**
+    - macos/**
+    - linux/**
+
+linter:
+  rules:
+    # --- correctness -------------------------------------------------------
+    always_declare_return_types: true
+    avoid_dynamic_calls: true
+    avoid_empty_else: true
+    avoid_slow_async_io: true
+    avoid_types_as_parameter_names: true
+    await_only_futures: true
+    cancel_subscriptions: true
+    close_sinks: true
+    collection_methods_unrelated_type: true
+    comment_references: false
+    control_flow_in_finally: true
+    empty_statements: true
+    hash_and_equals: true
+    invalid_case_patterns: true
+    literal_only_boolean_expressions: true
+    no_adjacent_strings_in_list: true
+    no_duplicate_case_values: true
+    prefer_void_to_null: true
+    test_types_in_equals: true
+    throw_in_finally: true
+    unawaited_futures: true
+    unnecessary_statements: true
+    unrelated_type_equality_checks: true
+    use_build_context_synchronously: true
+    valid_regexps: true
+
+    # --- money / precision hygiene ----------------------------------------
+    avoid_double_and_int_checks: true
+    prefer_int_literals: false
+
+    # --- style that keeps hand-written parsers readable --------------------
+    always_use_package_imports: true
+    annotate_overrides: true
+    avoid_bool_literals_in_conditional_expressions: true
+    avoid_field_initializers_in_const_classes: true
+    avoid_init_to_null: true
+    avoid_null_checks_in_equality_operators: true
+    avoid_redundant_argument_values: true
+    avoid_unused_constructor_parameters: true
+    avoid_void_async: true
+    cascade_invocations: false
+    directives_ordering: true
+    exhaustive_cases: true
+    join_return_with_assignment: false
+    omit_local_variable_types: false
+    prefer_asserts_in_initializer_lists: true
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
+    prefer_final_fields: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    prefer_if_null_operators: true
+    prefer_is_empty: true
+    prefer_is_not_empty: true
+    prefer_single_quotes: true
+    prefer_typing_uninitialized_variables: true
+    sort_constructors_first: true
+    sort_unnamed_constructors_first: true
+    type_annotate_public_apis: true
+    unnecessary_await_in_return: true
+    unnecessary_lambdas: true
+    unnecessary_null_aware_assignments: true
+    unnecessary_parenthesis: false
+    use_named_constants: true
+    use_super_parameters: true
